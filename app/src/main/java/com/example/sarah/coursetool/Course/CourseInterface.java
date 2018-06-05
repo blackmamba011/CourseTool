@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Interface for an instance of a scheduled course
  */
-public interface Course {
+public interface CourseInterface {
 
     /**
      * Gets the unique ID for the scheduled course

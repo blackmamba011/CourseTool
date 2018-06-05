@@ -1,6 +1,6 @@
 package com.example.sarah.coursetool.profile;
 
-import com.example.sarah.coursetool.Course.Course;
+import com.example.sarah.coursetool.Course.CourseInterface;
 
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public interface Profile {
      * Gets all the courses related to this user
      * @return Map of course IDs
      */
-    ArrayList<Course> getCourses();
+    ArrayList<CourseInterface> getCourses();
 
     /**
      * Gets this profiles grade in a course
