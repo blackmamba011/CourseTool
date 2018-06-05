@@ -1,6 +1,7 @@
 package com.example.sarah.coursetool.Database;
 
 import com.example.sarah.coursetool.Course.CourseInterface;
+import com.example.sarah.coursetool.profile.*;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -11,10 +12,10 @@ import java.util.ArrayList;
 public interface UserDatabase {
 
     /**
-     * Gets all the courses this user is enrolled in and has finished
-     * @return userCourses
+     * Gets the user's profile
+     * @return userProfile
      */
-    ArrayList<CourseInterface> getUserCourses();
+    Profile getUserProfile();
 
     /**
      * Gets all available courses
@@ -22,12 +23,6 @@ public interface UserDatabase {
      */
     ArrayList<CourseInterface> getScheduledCourse();
 
-    /**
-     * Gets the users grade in a course. Returns -1 if the user has not finished the course yet.
-     * @param scheduledCourseID
-     * @return grade
-     */
-    int getGrade(int scheduledCourseID);
 
     /**
      * Enrolls the user in a course
@@ -43,15 +38,4 @@ public interface UserDatabase {
      */
     void removeCourse (int schedID) throws InvalidParameterException;
 
-    /**
-     * Gets the user's first and last name
-     * @return name
-     */
-    String getName();
-
-    /**
-     * Gets the username
-     * @return username
-     */
-    String getUsername();
 }
