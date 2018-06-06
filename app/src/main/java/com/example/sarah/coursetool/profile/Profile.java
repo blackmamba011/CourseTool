@@ -3,6 +3,7 @@ package com.example.sarah.coursetool.profile;
 import com.example.sarah.coursetool.Course.CourseInterface;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Interface for profiles
@@ -31,7 +32,7 @@ public interface Profile {
      * Gets this profiles birthday date
      * @return birthday
      */
-    String getBirthday();
+    Date getBirthday();
 
     /**
      * Gets all the courses related to this user
