@@ -5,6 +5,7 @@ import com.example.sarah.coursetool.Course.CourseInterface;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class StudentProfile implements Profile {
     String userName, password, name;
@@ -35,6 +36,25 @@ public class StudentProfile implements Profile {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StudentProfile)) return false;
+        StudentProfile that = (StudentProfile) o;
+        return Objects.equals(userName, that.userName) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(birthday, that.birthday) &&
+                Objects.equals(enrolledCourses, that.enrolledCourses) &&
+                Objects.equals(grades, that.grades);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(userName, password, name, birthday, enrolledCourses, grades);
+    }
+
+    @Override
     public String getName() {
         return null;
     }
@@ -50,7 +70,7 @@ public class StudentProfile implements Profile {
     }
 
     @Override
-    public int getCourseGrade(String CourseID) {
+    public int getCourseGrade(int CourseID) {
         return 0;
     }
 }

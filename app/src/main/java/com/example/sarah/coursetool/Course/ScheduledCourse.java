@@ -26,6 +26,8 @@ public class ScheduledCourse implements CourseInterface {
         return 0;
     }
 
+    //need an ID for the actual course..
+
     @Override
     public String getProf() {
         return null;

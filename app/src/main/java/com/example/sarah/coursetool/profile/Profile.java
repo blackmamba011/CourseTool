@@ -45,5 +45,5 @@ public interface Profile {
      * @param CourseID
      * @return grade
      */
-    int getCourseGrade(String CourseID);
+    int getCourseGrade(int CourseID);
 }
