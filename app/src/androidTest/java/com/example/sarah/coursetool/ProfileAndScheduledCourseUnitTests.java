@@ -74,6 +74,6 @@ public class ProfileAndScheduledCourseUnitTests {
         assertEquals(scheduledCourse.getProf(),"Aziz");
         assertEquals(scheduledCourse.getRoom(),456);
         assertEquals(scheduledCourse.getStartTimes().get(0),epoch);
-       
+
     }
 }

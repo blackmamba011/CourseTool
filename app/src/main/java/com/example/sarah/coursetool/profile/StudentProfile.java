@@ -5,7 +5,6 @@ import com.example.sarah.coursetool.Course.CourseInterface;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class StudentProfile implements Profile {
     String userName, password, name;
@@ -27,50 +26,38 @@ public class StudentProfile implements Profile {
 
     @Override
     public String getUserName() {
-        return null;
+        return userName;
     }
 
     @Override
     public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof StudentProfile)) return false;
-        StudentProfile that = (StudentProfile) o;
-        return Objects.equals(userName, that.userName) &&
-                Objects.equals(password, that.password) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(birthday, that.birthday) &&
-                Objects.equals(enrolledCourses, that.enrolledCourses) &&
-                Objects.equals(grades, that.grades);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(userName, password, name, birthday, enrolledCourses, grades);
+        return password;
     }
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public Date getBirthday() {
-        return null;
+        return birthday;
     }
 
-    @Override
-    public ArrayList<CourseInterface> getCourses() {
-        return null;
+    public ArrayList<CourseInterface> getEnrolledCourses() {
+        return enrolledCourses;
+    }
+
+    public HashMap<Integer, Integer> getGrades() {
+        return grades;
     }
 
     @Override
     public int getCourseGrade(int CourseID) {
-        return 0;
+        return grades.get(CourseID);
+    }
+    @Override
+    public ArrayList<CourseInterface> getCourses() {
+        return null;
     }
 }

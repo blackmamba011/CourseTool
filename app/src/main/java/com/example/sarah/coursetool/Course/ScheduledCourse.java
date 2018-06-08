@@ -23,43 +23,41 @@ public class ScheduledCourse implements CourseInterface {
 
     @Override
     public int getID() {
-        return 0;
-    }
-
-    //need an ID for the actual course..
-
-    @Override
-    public String getProf() {
-        return null;
+        return id;
     }
 
     @Override
     public int getRoom() {
-        return 0;
+        return room;
     }
 
     @Override
-    public ArrayList<Date> getStartTimes() {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Date> getEndTimes() {
-        return null;
+    public String getProf() {
+        return prof;
     }
 
     @Override
     public String getDeptCode() {
-        return null;
+        return deptCode;
     }
 
     @Override
     public String getDesc() {
-        return null;
+        return desc;
+    }
+
+    @Override
+    public ArrayList<Date> getStartTimes() {
+        return startTimes;
+    }
+
+    @Override
+    public ArrayList<Date> getEndTimes() {
+        return endTimes;
     }
 
     @Override
     public ArrayList<Integer> getPrereqs() {
-        return null;
+        return preReqs;
     }
 }
