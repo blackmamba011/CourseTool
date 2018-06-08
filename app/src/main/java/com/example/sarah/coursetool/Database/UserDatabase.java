@@ -21,7 +21,7 @@ public interface UserDatabase {
      * Gets all available courses
      * @return scheduleCourses
      */
-    ArrayList<CourseInterface> getScheduledCourse();
+    ArrayList<CourseInterface> getScheduledCourses();
 
 
     /**
