@@ -4,6 +4,7 @@ import com.example.sarah.coursetool.Course.CourseInterface;
 import com.example.sarah.coursetool.Course.ScheduledCourse;
 import com.example.sarah.coursetool.profile.StudentProfile;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -23,7 +24,7 @@ public class ProfileAndScheduledCourseUnitTests {
     ArrayList<CourseInterface> exampleCourses;
     Date epoch;
 
-    @BeforeClass
+    @Before
     public void initializeTestProfile() {
         epoch = new Date(0);
 
