@@ -48,16 +48,8 @@ public class StudentProfile implements Profile {
         return enrolledCourses;
     }
 
-    public HashMap<Integer, Integer> getGrades() {
-        return grades;
-    }
-
     @Override
     public int getCourseGrade(int CourseID) {
         return grades.get(CourseID);
-    }
-    @Override
-    public ArrayList<CourseInterface> getCourses() {
-        return null;
     }
 }

@@ -1,16 +1,11 @@
 package com.example.sarah.coursetool;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
-
 import com.example.sarah.coursetool.Course.CourseInterface;
 import com.example.sarah.coursetool.Course.ScheduledCourse;
 import com.example.sarah.coursetool.profile.StudentProfile;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,9 +16,7 @@ import static org.junit.Assert.*;
 /**
  * Instrumented test, which will execute on an Android device.
  *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-@RunWith(AndroidJUnit4.class)
 public class ProfileAndScheduledCourseUnitTests {
     StudentProfile testProf;
     ScheduledCourse scheduledCourse;
@@ -57,7 +50,7 @@ public class ProfileAndScheduledCourseUnitTests {
     {
         assertEquals(testProf.getBirthday(), new Date(0));
         assertEquals(testProf.getCourseGrade(134),50);
-        assertEquals(testProf.getCourses().get(0),scheduledCourse);
+        assertEquals(testProf.getEnrolledCourses().get(0),scheduledCourse);
         assertEquals(testProf.getName(),"Frank Lustre");
         assertEquals(testProf.getPassword(),"password");
         assertEquals(testProf.getUserName(),"userName");
