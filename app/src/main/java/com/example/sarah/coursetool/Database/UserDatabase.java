@@ -1,7 +1,7 @@
 package com.example.sarah.coursetool.Database;
 
 import com.example.sarah.coursetool.Course.CourseInterface;
-import com.example.sarah.coursetool.profile.*;
+import com.example.sarah.coursetool.UserProfile.*;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;

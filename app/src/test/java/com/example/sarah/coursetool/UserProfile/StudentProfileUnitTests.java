@@ -1,7 +1,6 @@
-package com.example.sarah.coursetool;
+package com.example.sarah.coursetool.UserProfile;
 
 import com.example.sarah.coursetool.Course.CourseInterface;
-import com.example.sarah.coursetool.profile.StudentProfile;
 
 import org.junit.Before;
 import org.junit.Test;

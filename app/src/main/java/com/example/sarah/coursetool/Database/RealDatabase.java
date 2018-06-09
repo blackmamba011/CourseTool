@@ -1,8 +1,8 @@
 package com.example.sarah.coursetool.Database;
 
 import com.example.sarah.coursetool.Course.CourseInterface;
-import com.example.sarah.coursetool.profile.Profile;
-import com.example.sarah.coursetool.profile.StudentProfile;
+import com.example.sarah.coursetool.UserProfile.Profile;
+import com.example.sarah.coursetool.UserProfile.StudentProfile;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

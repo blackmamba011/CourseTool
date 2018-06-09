@@ -1,4 +1,4 @@
-package com.example.sarah.coursetool.profile;
+package com.example.sarah.coursetool.UserProfile;
 
 import com.example.sarah.coursetool.Course.CourseInterface;
 

@@ -1,4 +1,4 @@
-package com.example.sarah.coursetool;
+package com.example.sarah.coursetool.Course;
 
 import com.example.sarah.coursetool.Course.ScheduledCourse;
 

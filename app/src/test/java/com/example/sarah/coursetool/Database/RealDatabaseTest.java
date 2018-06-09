@@ -1,7 +1,7 @@
 package com.example.sarah.coursetool.Database;
 
 import com.example.sarah.coursetool.Course.CourseInterface;
-import com.example.sarah.coursetool.profile.Profile;
+import com.example.sarah.coursetool.UserProfile.Profile;
 
 import org.junit.Test;
 
