@@ -15,6 +15,9 @@
     <string name="view_courses">View Courses</string>
     <string name="add_drop_courses">Add/Drop Courses</string>
     <string name="main_menu">Main Menu</string>
+    <string name="other_options">Other Options</string>
+    <string name="name_placeholder">name</string>
+    <string name="username_placeholder">username</string>
 
     <string-array name="main_menu_list">
         <item>@string/view_schedule</item>

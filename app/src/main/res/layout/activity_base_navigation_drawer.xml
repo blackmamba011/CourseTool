@@ -7,20 +7,25 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <!-- main activity content (nav drawer will slide over this) -->
-    <FrameLayout android:id="@+id/content_frame"
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- action toolbar with the hamburger menu button -->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        />
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
-   </FrameLayout>
+        <!-- main activity content (nav drawer will slide over this) -->
+        <FrameLayout android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"/>
+
+    </FrameLayout>
 
     <!-- use NavigationView to make configuration easier -->
     <android.support.design.widget.NavigationView

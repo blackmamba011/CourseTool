@@ -1,7 +1,9 @@
 package com.example.sarah.coursetool;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -55,23 +57,51 @@ public class BaseNavigationActivity extends AppCompatActivity {
         // add a listener for when the user selects a navigation choice from the nav drawer
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                // clear the previous selection if there was one
-                if (selectedMenuItem != null){
-                    selectedMenuItem.setChecked(false);
-                }
-
-                // set the chosen navigation menu item as selected and close the nav drawer
-                menuItem.setChecked(true);
-                selectedMenuItem = menuItem;
-                navDrawerLayout.closeDrawers();
-
-                // Add code here to update the UI based on the item selected
-                // For example, swap UI fragments here
-
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                selectNavigationMenuItem(menuItem);
                 return true;
             }
         });
+    }
+
+    /**
+     * Navigates to the desired activity upon selecting a menu item
+     *
+     * @param menuItem - The selected menu item from the Navigation Drawer
+     */
+    private void selectNavigationMenuItem (MenuItem menuItem){
+        // clear the previous selection if there was one
+        if (selectedMenuItem != null){
+            selectedMenuItem.setChecked(false);
+        }
+
+        // mark the chosen navigation menu item as selected in the UI
+        menuItem.setChecked(true);
+        selectedMenuItem = menuItem;
+
+        Class nextActivity = null;
+
+        switch(menuItem.getItemId()){
+            case R.id.nav_main_menu:
+                nextActivity = MainActivity.class;
+                break;
+            case R.id.nav_view_schedule:
+                break;
+            case R.id.nav_view_courses:
+                break;
+            case R.id.nav_add_drop_courses:
+                break;
+            case R.id.nav_logout:
+                // perform logout and set nextActivity to the login screen
+                break;
+        }
+
+        if (nextActivity != null){
+            Intent myIntent = new Intent(this, nextActivity);
+            startActivity(myIntent);
+        }
+
+        navDrawerLayout.closeDrawers();
     }
 
     /**
