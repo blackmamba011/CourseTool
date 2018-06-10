@@ -1,9 +1,15 @@
 package com.example.sarah.coursetool.Database;
 
+import android.content.Context;
+import android.support.test.runner.AndroidJUnit4;
+import android.test.mock.MockContext;
+
 import com.example.sarah.coursetool.Course.CourseInterface;
 import com.example.sarah.coursetool.UserProfile.Profile;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -15,12 +21,18 @@ import static org.junit.Assert.assertNotEquals;
 /**
  * Tests for the RealDatabaseTest class
  */
+@RunWith(AndroidJUnit4.class)
 public class RealDatabaseTest {
-    final RealDatabase database = new RealDatabase();
+    RealDatabase database;
 
     final static String validUsername = "rlowe90";
     final static String validPassword = "lordOfTheRings340";
     final static int testscheduledCourseID = 1234;
+
+    @Before
+    public void setup(){
+        database = new RealDatabase();
+    }
 
     /**
      * Tests that the getProfileDatabase method returns a UserDatabase when given correct credentials
@@ -29,11 +41,11 @@ public class RealDatabaseTest {
     public void getValidProfileDatabase() {
         UserDatabase loggedInDatabase = database.getProfileDatabase(validUsername, validPassword);
 
-        assertEquals(loggedInDatabase.getClass(), UserDatabase.class);
+        assertTrue(loggedInDatabase instanceof UserDatabase);
     }
 
     /**
-     * Tests that the getProfileDatabase method throws an exception  when given incorrect credentials
+     * Tests that the getProfileDatabase method throws an exception when given incorrect credentials
      */
     @Test(expected = InvalidParameterException.class)
     public void getInvalidProfileDatabase() {
@@ -47,7 +59,8 @@ public class RealDatabaseTest {
     public void getUserProfile() {
         UserDatabase loggedInDatabase = database.getProfileDatabase(validUsername, validPassword);
 
-        assertEquals(loggedInDatabase.getUserProfile().getClass(), Profile.class);
+        Profile testProfile = loggedInDatabase.getUserProfile();
+        assertTrue(testProfile instanceof Profile);
     }
 
     /**
@@ -67,25 +80,41 @@ public class RealDatabaseTest {
     @Test
     public void enrollAndRemove() {
         UserDatabase loggedInDatabase = database.getProfileDatabase(validUsername, validPassword);
-        loggedInDatabase.removeCourse(testscheduledCourseID);
-
-        ArrayList<CourseInterface> scheduledCourses = loggedInDatabase.getScheduledCourses();
-
-        for (CourseInterface course: scheduledCourses) {
-            assertNotEquals(testscheduledCourseID, course.getID());
-        }
-
         loggedInDatabase.enroll(testscheduledCourseID);
 
-        boolean contains1234 = false;
-        for (CourseInterface course: scheduledCourses) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        ArrayList<CourseInterface> EnrolledCourses = loggedInDatabase.getUserProfile().getEnrolledCourses();
+
+        boolean contains = false;
+        for (CourseInterface course: EnrolledCourses) {
             if (course.getID() == testscheduledCourseID) {
-                contains1234 = true;
+                contains = true;
                 break;
             }
         }
 
-        assertTrue(contains1234);
+        assertTrue(contains);
+
+        loggedInDatabase.removeCourse(testscheduledCourseID);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        EnrolledCourses = loggedInDatabase.getUserProfile().getEnrolledCourses();
+
+        for (CourseInterface course: EnrolledCourses) {
+            assertNotEquals(testscheduledCourseID, course.getID());
+        }
+
+        loggedInDatabase.enroll(testscheduledCourseID);
     }
 
 }
