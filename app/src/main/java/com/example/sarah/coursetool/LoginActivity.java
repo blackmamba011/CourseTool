@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button loginButton = (Button)findViewById(R.id.login_button);
+/*    Button loginButton = (Button)findViewById(R.id.login_button);
     EditText username = (EditText)findViewById(R.id.username);
-    EditText password = (EditText)findViewById(R.id.password);
+    EditText password = (EditText)findViewById(R.id.password);*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +18,11 @@ public class LoginActivity extends AppCompatActivity {
     }
     /*Called when login button is pressed*/
     public void processLogin(View view){
-        if(username.toString().equals("admin") && password.toString().equals("admin")){
+        /*if(username.toString().equals("admin") && password.toString().equals("admin")){
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
-        }
-        else{
-            //wrong password
-        }
+        }*/
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }
