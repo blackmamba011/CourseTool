@@ -22,8 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     /*Called when login button is pressed*/
     public void processLogin(View view){
-        EditText username = (EditText)findViewById(R.id.username);
-        EditText password = (EditText)findViewById(R.id.password);
+        EditText username = findViewById(R.id.username);
+        EditText password = findViewById(R.id.password);
 
         if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
             Intent intent = new Intent(this, MainActivity.class);

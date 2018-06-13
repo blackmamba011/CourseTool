@@ -93,6 +93,7 @@ public class BaseNavigationActivity extends AppCompatActivity {
                 break;
             case R.id.nav_logout:
                 // perform logout and set nextActivity to the login screen
+                nextActivity = LoginActivity.class;
                 break;
         }
 
