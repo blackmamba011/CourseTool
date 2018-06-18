@@ -1,44 +1,45 @@
 package com.example.sarah.coursetool;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-
-/*    Button loginButton = (Button)findViewById(R.id.login_button);
-    EditText username = (EditText)findViewById(R.id.username);
-    EditText password = (EditText)findViewById(R.id.password);*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
     }
-    /*Called when login button is pressed*/
+
+    /**
+     * Called when the login button is pressed
+     */
     public void processLogin(View view){
         EditText username = findViewById(R.id.username);
         EditText password = findViewById(R.id.password);
 
+        if(view != null) {
+            // close the keyboard
+            InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
         if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+        } else{
+            // username/password was wrong - Show an error message
+            password.setText("");
+            CharSequence errorText = getString(R.string.invalid_username_password);
+            Toast toast = Toast.makeText(getApplicationContext(), errorText, Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 
-    public static boolean isValid(String password){
-        Pattern pattern;
-        Matcher matcher;
-
-        return false;
-    }
 }

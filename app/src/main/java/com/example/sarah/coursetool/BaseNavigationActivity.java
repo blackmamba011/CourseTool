@@ -14,6 +14,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BaseNavigationActivity extends AppCompatActivity {
 
     private DrawerLayout navDrawerLayout;
@@ -79,6 +82,8 @@ public class BaseNavigationActivity extends AppCompatActivity {
         menuItem.setChecked(true);
         selectedMenuItem = menuItem;
 
+        List<Integer> flagList = new ArrayList<>();
+        boolean logout = false;
         Class nextActivity = null;
 
         switch(menuItem.getItemId()){
@@ -94,15 +99,26 @@ public class BaseNavigationActivity extends AppCompatActivity {
             case R.id.nav_logout:
                 // perform logout and set nextActivity to the login screen
                 nextActivity = LoginActivity.class;
+                flagList.add(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                logout = true;
                 break;
         }
 
         if (nextActivity != null){
-            Intent myIntent = new Intent(this, nextActivity);
-            startActivity(myIntent);
+            Intent intent = new Intent(this, nextActivity);
+
+            for(int i = 0; i < flagList.size(); i++) {
+                intent.addFlags(flagList.get(i));
+            }
+
+            startActivity(intent);
         }
 
         navDrawerLayout.closeDrawers();
+
+        if(logout){
+            finish();
+        }
     }
 
     /**
